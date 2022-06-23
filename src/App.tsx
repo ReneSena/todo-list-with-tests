@@ -7,7 +7,15 @@ function App() {
     const handleOnChange = (event: React.BaseSyntheticEvent) =>
         setInputFieldValue(event.target.value);
 
-    return <TextField value={inputFieldValue} onChange={handleOnChange} onSubmit={() => {}} />;
+    const handleAddNewTask = (event: React.BaseSyntheticEvent) => {
+        event.preventDefault();
+
+        setInputFieldValue('');
+    };
+
+    return (
+        <TextField value={inputFieldValue} onChange={handleOnChange} onSubmit={handleAddNewTask} />
+    );
 }
 
 export default App;
