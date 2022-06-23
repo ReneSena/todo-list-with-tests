@@ -1,5 +1,13 @@
+import React from 'react';
+import { TextField } from './components/TextField/TextField';
+
 function App() {
-  return <h1>Todo</h1>;
+    const [inputFieldValue, setInputFieldValue] = React.useState<string>('');
+
+    const handleOnChange = (event: React.BaseSyntheticEvent) =>
+        setInputFieldValue(event.target.value);
+
+    return <TextField value={inputFieldValue} onChange={handleOnChange} onSubmit={() => {}} />;
 }
 
 export default App;
