@@ -6,7 +6,12 @@ export default async (): Promise<Config> => {
         roots: ['<rootDir>/src'],
         testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
         testEnvironment: 'jsdom',
-        collectCoverageFrom: ['**/*.{ts,tsx}', '!**/node_modules/**'],
+        collectCoverageFrom: [
+            '**/*.{ts,tsx}',
+            '!**/node_modules/**',
+            '!src/main.tsx',
+            '!src/**/*.d.ts',
+        ],
         coverageThreshold: {
             global: {
                 branches: 90,
