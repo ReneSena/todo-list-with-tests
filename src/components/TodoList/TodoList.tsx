@@ -1,27 +1,27 @@
 import { FC } from 'react';
 
-interface ITodoListItem {
+export interface ITodoListItem {
     id: string;
     value: string;
 }
 
-interface ITodoList {
-    list: {
-        id: string;
-        value: string;
-    }[];
+export interface ITodoList {
+    listItems: ITodoListItem[];
 }
 
 const TodoListItem: FC<ITodoListItem> = ({ id, value }) => {
-    return <li key={id}>{value}</li>;
+    return <li id={id}>{value}</li>;
 };
 
-export const TodoList: FC<ITodoList> = ({ list }) => {
+export const TodoList: FC<ITodoList> = ({ listItems }) => {
     return (
         <ul>
-            {!list.length && (
+            {!listItems.length && (
                 <TodoListItem id="empty-space" value="You have no tasks registered." />
             )}
+            {listItems.map((item) => (
+                <TodoListItem key={item.id} id={item.id} value={item.value} />
+            ))}
         </ul>
     );
 };
