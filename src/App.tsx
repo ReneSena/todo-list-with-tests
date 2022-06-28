@@ -1,6 +1,7 @@
 import { ITodoListItem, TodoList } from './components/TodoList/TodoList';
 import React from 'react';
 import { TextField } from './components/TextField/TextField';
+import { GlobalStyle } from './global/global';
 
 function App() {
     const [inputFieldValue, setInputFieldValue] = React.useState<string>('');
@@ -13,7 +14,7 @@ function App() {
         event.preventDefault();
 
         const listItems = {
-            id: Math.random().toString(),
+            id: Math.random().toString().replace('.', ''),
             value: inputFieldValue,
         };
 
@@ -23,6 +24,7 @@ function App() {
 
     return (
         <>
+            <GlobalStyle />
             <TextField
                 value={inputFieldValue}
                 onChange={handleOnChange}
