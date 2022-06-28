@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
 export interface ITodoListItem {
     id: string;
@@ -8,9 +9,27 @@ export interface ITodoListItem {
 export interface ITodoList {
     listItems: ITodoListItem[];
 }
+interface IProps {
+    done: boolean;
+}
+
+const ListItem = styled.li<IProps>`
+    text-decoration: ${(props) => props.done && 'line-through'};
+`;
 
 const TodoListItem: FC<ITodoListItem> = ({ id, value }) => {
-    return <li id={id}>{value}</li>;
+    const [taskDone, setTaskDone] = React.useState<boolean>(false);
+
+    const handleCheckbox = () => setTaskDone(!taskDone);
+
+    return (
+        <>
+            <ListItem id={id} done={taskDone}>
+                <input type="checkbox" onClick={handleCheckbox} />
+                {value}
+            </ListItem>
+        </>
+    );
 };
 
 export const TodoList: FC<ITodoList> = ({ listItems }) => {
