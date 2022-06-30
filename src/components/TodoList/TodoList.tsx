@@ -34,14 +34,14 @@ const TodoListItem: FC<ITodoListItem> = ({ id, value }) => {
 
 export const TodoList: FC<ITodoList> = ({ listItems }) => {
     return (
-        <ul>
-            {!listItems.length && (
-                <TodoListItem id="empty-space" value="You have no tasks registered." />
-            )}
-            {listItems.map((item) => (
-                <TodoListItem key={item.id} id={item.id} value={item.value} />
-            ))}
-        </ul>
+        <>
+            {!listItems.length && <div>You have no tasks registered.</div>}
+            <ul>
+                {listItems.map((item) => (
+                    <TodoListItem key={item.id} id={item.id} value={item.value} />
+                ))}
+            </ul>
+        </>
     );
 };
 

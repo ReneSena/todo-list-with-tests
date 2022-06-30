@@ -4,18 +4,30 @@ exports[`<TodoList /> should render TodoList Component with tasks 1`] = `
 Array [
   <ul>
     <li
+      class="sc-bczRLJ fThpee"
       id="1234"
     >
+      <input
+        type="checkbox"
+      />
       To do coffe
     </li>
     <li
+      class="sc-bczRLJ fThpee"
       id="2345"
     >
+      <input
+        type="checkbox"
+      />
       Create a blog
     </li>
     <li
+      class="sc-bczRLJ fThpee"
       id="3456"
     >
+      <input
+        type="checkbox"
+      />
       Drink water
     </li>
   </ul>,
