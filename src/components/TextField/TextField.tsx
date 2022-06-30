@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import * as Styled from './styled';
 
 interface ITextField {
     value: string;
@@ -8,15 +9,16 @@ interface ITextField {
 
 export const TextField: FC<ITextField> = ({ value, onChange, onSubmit }) => {
     return (
-        <form name="form-field" onSubmit={onSubmit}>
-            <input
+        <Styled.Form name="form-field" onSubmit={onSubmit}>
+            <Styled.Input
                 type="text"
                 name="input-field"
                 placeholder="Add a new task"
                 onChange={onChange}
                 value={value}
             />
-            <button type="submit">Add</button>
-        </form>
+            <Styled.Button type="submit">Add</Styled.Button>
+        </Styled.Form>
     );
 };
+
