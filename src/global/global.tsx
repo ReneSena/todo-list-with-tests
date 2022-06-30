@@ -9,6 +9,12 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: 'Roboto', sans-serif;
+        background: #444;
+        font-size: 1rem;
+
+        button, input, select, textarea {
+            font-family: inherit;
+        }
     }
 `;
 
